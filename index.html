@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استوديو الألوان والخطوط | Modern Palette & Typography Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Tajawal', 'sans-serif'],
+                        serif: ['Playfair Display', 'Amiri', 'serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            900: '#0f172a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        .color-card:hover .color-actions {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .light .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 dark:bg-slate-950 dark:text-slate-100 light:bg-slate-50 light:text-slate-900 transition-colors duration-300 min-h-screen font-sans flex flex-col antialiased">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 glass-effect border-b border-slate-800 dark:border-slate-800 light:border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
+                    <i class="fa-solid fa-palette text-white text-lg"></i>
+                </div>
+                <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-pink-400">
+                    Chromatic
+                </span>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 space-x-reverse text-sm font-medium">
+                <a href="#generator" class="text-slate-300 hover:text-indigo-400 transition-colors">مولد الألوان</a>
+                <a href="#curated" class="text-slate-300 hover:text-indigo-400 transition-colors">لوحات ممتازة</a>
+                <a href="#gradients" class="text-slate-300 hover:text-indigo-400 transition-colors">التدرجات</a>
+                <a href="#typography" class="text-slate-300 hover:text-indigo-400 transition-colors">التايبوجرافي والخطوط</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <button id="themeToggle" class="p-2.5 rounded-xl glass-effect text-slate-300 hover:text-white hover:bg-slate-800/50 transition-all" title="تبديل المظهر">
+                    <i class="fa-solid fa-moon dark:hidden"></i>
+                    <i class="fa-solid fa-sun hidden dark:block text-amber-400"></i>
+                </button>
+                <a href="#generator" class="hidden sm:inline-flex items-center px-4 py-2 rounded-xl text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 shadow-lg shadow-indigo-600/30 transition-all">
+                    <span>ابتكر الآن</span>
+                    <i class="fa-solid fa-wand-magic-sparkles mr-2 text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-20 lg:py-28 px-4">
+        <div class="absolute inset-0 -z-10 flex items-center justify-center">
+            <div class="w-[500px] h-[500px] bg-gradient-to-tr from-indigo-600/20 to-pink-600/20 rounded-full blur-3xl opacity-50 animate-pulse"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            <div class="inline-flex items-center space-x-2 space-x-reverse px-4 py-1.5 rounded-full glass-effect border border-indigo-500/30 text-indigo-300 text-xs font-semibold uppercase tracking-wider">
+                <span class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></span>
+                <span>استوديو التصميم المتكامل</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-slate-100 dark:text-slate-100 leading-tight">
+                سحر <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">الألوان</span> وجماليات <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">الخط العربي</span>
+            </h1>
+            
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+                مساحة تفاعلية راقية لمصممي المطوري الويب، لتوليد بالتات ألوان متناسقة، استكشاف التدرجات البصرية، وتجربة الخطوط والكلمات الملمهمة بكل سهولة.
+            </p>
+
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <button onclick="generateRandomPalette()" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-medium shadow-xl shadow-indigo-500/25 transition-all transform active:scale-95 flex items-center gap-2">
+                    <i class="fa-solid fa-rotate"></i>
+                    <span>توليد لوحة ألوان جديدة</span>
+                    <span class="text-xs bg-white/20 px-2 py-0.5 rounded text-indigo-100 font-mono">Space</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Dynamic Palette Generator -->
+    <section id="generator" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-100">مولد الألوان التفاعلي</h2>
+                <p class="text-slate-400 text-sm mt-1">اضغط على زر القفل لتثبيت اللون أو انقر لنسخ رمز الـ Hex</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="exportPalette()" class="px-4 py-2 rounded-xl glass-effect hover:bg-slate-800/80 text-slate-300 text-sm font-medium flex items-center gap-2 transition-all">
+                    <i class="fa-solid fa-download"></i>
+                    <span class="hidden sm:inline">تصدير</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Palette Cards Container -->
+        <div id="paletteContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 min-h-[320px]">
+            <!-- Dynamic palette cards rendered by JS -->
+        </div>
+    </section>
+
+    <!-- Curated Palettes Section -->
+    <section id="curated" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center max-w-xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold text-slate-100">لوحات ألوان جاهرة ومختارة</h2>
+            <p class="text-slate-400 text-sm mt-2">مجموعة من التنسيقات اللونية العصرية المستوحاة من أحدث اتجاهات التصميم</p>
+        </div>
+
+        <div id="curatedPalettes" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Curated list rendered dynamically -->
+        </div>
+    </section>
+
+    <!-- Gradient Showcase & Generator -->
+    <section id="gradients" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-800">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-100">مختبر التدرجات اللونية</h2>
+                <p class="text-slate-400 text-sm mt-1">تدرجات انسيابية جاهزة للاستخدام المباشر في مشاريعك</p>
+            </div>
+        </div>
+
+        <div id="gradientGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Gradients generated via JS -->
+        </div>
+    </section>
+
+    <!-- Typography & Inspiration Section -->
+    <section id="typography" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-800">
+        <div class="text-center max-w-xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold text-slate-100">جماليات الخط والنصوص الملحمة</h2>
+            <p class="text-slate-400 text-sm mt-2">استعرض تأثير التناغم بين الألوان والنصوص العربية والأجنبية الفاخرة</p>
+        </div>
+
+        <!-- Typography Interactive Playground -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            <!-- Controls -->
+            <div class="glass-effect p-6 rounded-2xl space-y-6">
+                <h3 class="text-lg font-bold text-slate-200 border-b border-slate-700/50 pb-3">إعدادات المعاينة الحية</h3>
+                
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">النص المعروض</label>
+                    <textarea id="typoTextInput" rows="3" class="w-full bg-slate-900/80 border border-slate-700 rounded-xl p-3 text-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none">الألوان هي البصمة المرئية التي تمنح الروح للتصميم وتخلق الذكريات.</textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">نوع الخط</label>
+                    <select id="typoFontSelect" class="w-full bg-slate-900/80 border border-slate-700 rounded-xl p-3 text-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="font-sans">Tajawal (عصري متناسق)</option>
+                        <option value="font-serif">Amiri (أصيل وفاخر)</option>
+                        <option value="font-mono">Fira Code (رموز برمجية)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">حجم الخط</label>
+                    <input type="range" id="typoSizeInput" min="18" max="56" value="28" class="w-full accent-indigo-500 bg-slate-800 rounded-lg cursor-pointer">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase mb-2">لون الخلفية والخط</label>
+                    <div class="flex gap-3">
+                        <input type="color" id="bgColorPicker" value="#0f172a" class="w-10 h-10 rounded-lg cursor-pointer bg-transparent border border-slate-700">
+                        <input type="color" id="textColorPicker" value="#f8fafc" class="w-10 h-10 rounded-lg cursor-pointer bg-transparent border border-slate-700">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Preview Card -->
+            <div class="lg:col-span-2 glass-effect rounded-2xl p-8 sm:p-12 min-h-[350px] flex flex-col justify-center items-center text-center transition-all duration-300 relative overflow-hidden group shadow-2xl" id="typoPreviewBox">
+                <p id="typoPreviewText" class="transition-all duration-200 text-slate-100 font-sans leading-relaxed">
+                    الألوان هي البصمة المرئية التي تمنح الروح للتصميم وتخلق الذكريات.
+                </p>
+                <div class="mt-8 pt-6 border-t border-white/10 w-full flex items-center justify-between text-xs text-white/60">
+                    <span id="fontBadge">Tajawal - 28px</span>
+                    <button onclick="copyTypographyCSS()" class="hover:text-white transition-colors flex items-center gap-1.5 bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg">
+                        <i class="fa-regular fa-copy"></i>
+                        <span>نسخ تنسيق CSS</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-auto border-t border-slate-800 glass-effect py-8 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>صُمم بحب وشغف للألوان والجماليات Visual Design Studio © 2026</p>
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <a href="#" class="hover:text-slate-300 transition-colors">عن الموقع</a>
+                <a href="#" class="hover:text-slate-300 transition-colors">الخصوصية</a>
+                <a href="#" class="hover:text-slate-300 transition-colors">تواصل معنا</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Overlay -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="glass-effect bg-slate-900/90 text-white border border-indigo-500/40 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3">
+            <div id="toastIcon" class="w-7 h-7 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <span id="toastMessage" class="text-sm font-medium">تم نسخ الكود بنجاح!</span>
+        </div>
+    </div>
+
+    <script>
+        // State variables
+        let currentPalette = [];
+        const PALETTE_SIZE = 5;
+
+        // Curated Palettes Data
+        const curatedData = [
+            { name: "Neon Sunset", colors: ["#2b2d42", "#8d99ae", "#edf2f4", "#ef233c", "#d90429"] },
+            { name: "Cyberpunk Glow", colors: ["#0f051d", "#291147", "#522258", "#8c1c13", "#a71d31"] },
+            { name: "Emerald Forest", colors: ["#064e3b", "#047857", "#10b981", "#6ee7b7", "#a7f3d0"] },
+            { name: "Nordic Frost", colors: ["#2e3440", "#3b4252", "#434c5e", "#88c0d0", "#8fbcbb"] },
+            { name: "Warm Gold", colors: ["#78350f", "#b45309", "#f59e0b", "#fbbf24", "#fef3c7"] },
+            { name: "Deep Ocean", colors: ["#0284c7", "#0369a1", "#075985", "#0c4a6e", "#082f49"] }
+        ];
+
+        // Sample Gradients
+        const gradientData = [
+            { from: "#833ab4", via: "#fd1d1d", to: "#fcb045" },
+            { from: "#00c6ff", to: "#0072ff" },
+            { from: "#ee0979", to: "#ff6a00" },
+            { from: "#11998e", to: "#38ef7d" }
+        ];
+
+        // Helper: Random Color Generator
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Initialize Dynamic Palette
+        function initPalette() {
+            currentPalette = [];
+            for (let i = 0; i < PALETTE_SIZE; i++) {
+                currentPalette.push({
+                    hex: getRandomColor(),
+                    locked: false
+                });
+            }
+            renderPalette();
+        }
+
+        // Generate new colors for unlocked cards
+        function generateRandomPalette() {
+            currentPalette.forEach(item => {
+                if (!item.locked) {
+                    item.hex = getRandomColor();
+                }
+            });
+            renderPalette();
+        }
+
+        // Toggle Color Lock
+        function toggleLock(index) {
+            currentPalette[index].locked = !currentPalette[index].locked;
+            renderPalette();
+        }
+
+        // Render Dynamic Palette UI
+        function renderPalette() {
+            const container = document.getElementById('paletteContainer');
+            container.innerHTML = '';
+
+            currentPalette.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'color-card group relative h-64 md:h-80 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 cursor-pointer overflow-hidden animate-fade-in';
+                card.style.backgroundColor = item.hex;
+
+                // Detect brightness to set appropriate text color
+                const rgb = hexToRgb(item.hex);
+                const brightness = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+                const textColor = brightness > 128 ? 'text-slate-900' : 'text-white';
+                const badgeBg = brightness > 128 ? 'bg-black/10' : 'bg-white/20';
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between w-full">
+                        <button onclick="event.stopPropagation(); toggleLock(${index})" class="p-2 rounded-xl ${badgeBg} ${textColor} hover:scale-110 transition-transform" title="${item.locked ? 'إلغاء التثبيت' : 'تثبيت اللون'}">
+                            <i class="fa-solid ${item.locked ? 'fa-lock' : 'fa-lock-open'} text-sm"></i>
+                        </button>
+                        <span class="text-xs font-mono font-bold uppercase tracking-wider ${textColor} opacity-80">${index + 1}</span>
+                    </div>
+
+                    <div class="space-y-2">
+                        <p class="text-xs font-mono opacity-70 ${textColor}">RGB: ${rgb.r}, ${rgb.g}, ${rgb.b}</p>
+                        <h3 class="text-xl font-mono font-bold uppercase ${textColor}">${item.hex}</h3>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => {
+                    copyToClipboard(item.hex, `تم نسخ اللون ${item.hex}`);
+                });
+
+                container.appendChild(card);
+            });
+        }
+
+        // Convert HEX to RGB
+        function hexToRgb(hex) {
+            let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : { r: 0, g: 0, b: 0 };
+        }
+
+        // Render Curated Palettes
+        function renderCurated() {
+            const container = document.getElementById('curatedPalettes');
+            container.innerHTML = '';
+
+            curatedData.forEach(p => {
+                const item = document.createElement('div');
+                item.className = 'glass-effect p-4 rounded-2xl space-y-3 hover:border-indigo-500/40 transition-all';
+                
+                let colorsHtml = '<div class="h-24 rounded-xl flex overflow-hidden shadow-inner">';
+                p.colors.forEach(hex => {
+                    colorsHtml += `
+                        <div class="h-full flex-1 hover:flex-[1.5] transition-all duration-300 relative group cursor-pointer" style="background-color: ${hex}" onclick="copyToClipboard('${hex}', 'تم نسخ ${hex}')">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs font-mono transition-opacity">
+                                ${hex}
+                            </div>
+                        </div>
+                    `;
+                });
+                colorsHtml += '</div>';
+
+                item.innerHTML = `
+                    ${colorsHtml}
+                    <div class="flex items-center justify-between text-sm">
+                        <span class="font-medium text-slate-200">${p.name}</span>
+                        <button onclick="applyCurated(['${p.colors.join("','")}'])" class="text-xs text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+                            <i class="fa-solid fa-wand-magic"></i> تطبيق
+                        </button>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function applyCurated(colors) {
+            currentPalette = colors.map(hex => ({ hex, locked: false }));
+            renderPalette();
+            window.location.href = '#generator';
+        }
+
+        // Render Gradients
+        function renderGradients() {
+            const container = document.getElementById('gradientGrid');
+            container.innerHTML = '';
+
+            gradientData.forEach(g => {
+                const gradientCss = g.via 
+                    ? `linear-gradient(to right, ${g.from}, ${g.via}, ${g.to})`
+                    : `linear-gradient(to right, ${g.from}, ${g.to})`;
+
+                const card = document.createElement('div');
+                card.className = 'h-40 rounded-2xl p-4 flex flex-col justify-end cursor-pointer group shadow-lg hover:scale-[1.02] transition-all relative overflow-hidden';
+                card.style.background = gradientCss;
+
+                card.innerHTML = `
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    <div class="relative z-10 flex items-center justify-between text-white">
+                        <span class="text-xs font-mono font-bold bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-lg">Copy CSS</span>
+                        <i class="fa-regular fa-copy text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => {
+                    const cssCode = `background: ${gradientCss};`;
+                    copyToClipboard(cssCode, 'تم نسخ كود التدرج CSS!');
+                });
+
+                container.appendChild(card);
+            });
+        }
+
+        // Typography Interactive Tool Logic
+        function setupTypographyTool() {
+            const textInput = document.getElementById('typoTextInput');
+            const fontSelect = document.getElementById('typoFontSelect');
+            const sizeInput = document.getElementById('typoSizeInput');
+            const bgColorPicker = document.getElementById('bgColorPicker');
+            const textColorPicker = document.getElementById('textColorPicker');
+
+            const previewBox = document.getElementById('typoPreviewBox');
+            const previewText = document.getElementById('typoPreviewText');
+            const fontBadge = document.getElementById('fontBadge');
+
+            function updatePreview() {
+                previewText.textContent = textInput.value || "اكتب نصك هنا المعاينة...";
+                previewText.style.fontSize = `${sizeInput.value}px`;
+                previewBox.style.backgroundColor = bgColorPicker.value;
+                previewText.style.color = textColorPicker.value;
+
+                // Update Font Family Class
+                previewText.className = `transition-all duration-200 leading-relaxed ${fontSelect.value}`;
+
+                const fontName = fontSelect.options[fontSelect.selectedIndex].text.split(' ')[0];
+                fontBadge.textContent = `${fontName} - ${sizeInput.value}px`;
+            }
+
+            textInput.addEventListener('input', updatePreview);
+            fontSelect.addEventListener('change', updatePreview);
+            sizeInput.addEventListener('input', updatePreview);
+            bgColorPicker.addEventListener('input', updatePreview);
+            textColorPicker.addEventListener('input', updatePreview);
+
+            updatePreview();
+        }
+
+        function copyTypographyCSS() {
+            const fontSelect = document.getElementById('typoFontSelect');
+            const sizeInput = document.getElementById('typoSizeInput');
+            const textColorPicker = document.getElementById('textColorPicker');
+            const bgColorPicker = document.getElementById('bgColorPicker');
+
+            const css = `font-size: ${sizeInput.value}px;\ncolor: ${textColorPicker.value};\nbackground-color: ${bgColorPicker.value};`;
+            copyToClipboard(css, 'تم نسخ إعدادات الخط كـ CSS!');
+        }
+
+        // Copy Helper & Toast
+        function copyToClipboard(text, message) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(message);
+            }).catch(() => {
+                // Fallback
+                const input = document.createElement('input');
+                input.value = text;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                showToast(message);
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.textContent = message;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        // Export Palette as JSON
+        function exportPalette() {
+            const paletteHexes = currentPalette.map(p => p.hex);
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(paletteHexes, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "palette.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast("تم تحضير وتنزيل ملف البالتة!");
+        }
+
+        // Theme Toggle
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            document.documentElement.classList.toggle('light');
+        });
+
+        // Spacebar Shortcut for generating new palette
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space' && e.target.tagName !== 'TEXTAREA' && e.target.tagName !== 'INPUT') {
+                e.preventDefault();
+                generateRandomPalette();
+            }
+        });
+
+        // Initialize on window load
+        window.onload = function () {
+            initPalette();
+            renderCurated();
+            renderGradients();
+            setupTypographyTool();
+        };
+    </script>
+</body>
+</html>
